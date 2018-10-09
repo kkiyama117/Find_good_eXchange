@@ -4,8 +4,9 @@ import oandapyV20.endpoints.instruments as inst
 
 if __name__ == '__main__':
     oanda_api_token = config("OANDA_API")
-    oanda_api = API(access_token=oanda_api_token)
+    oanda_api = API(access_token=oanda_api_token,environment="practice")
     params = {
+        "alignmentTimezone": "Japan",
         "count": 200,
         "granularity": "M15"
     }
