@@ -1,0 +1,9 @@
+# 個人情報等重要情報の分離
+python-decouple
+# 計算ツール
+numpy
+panda
+# データ取得
+oandapyV20
+# database
+pymongo

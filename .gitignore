@@ -105,3 +105,4 @@ venv.bak/
 
 # Editor setting files
 .idea/
+# python-decouple
