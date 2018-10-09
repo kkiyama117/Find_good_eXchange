@@ -4,4 +4,11 @@ import oandapyV20.endpoints.instruments as inst
 
 if __name__ == '__main__':
     oanda_api_token = config("OANDA_API")
-    oanda = API(access_token=oanda_api_token)
+    oanda_api = API(access_token=oanda_api_token)
+    params = {
+        "count": 200,
+        "granularity": "M15"
+    }
+    data = inst.InstrumentsCandles(instrument="EUR_USD", params=params)
+    oanda_api.request(data)
+    print(data.responce)
