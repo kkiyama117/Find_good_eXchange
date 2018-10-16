@@ -2,11 +2,11 @@ from oandapyV20 import API
 from decouple import config
 import oandapyV20.endpoints.instruments as inst
 
-def get_data():
+def get_data() -> list:
     """
-    get data of chart as list of taple
+    get data of chart as list of dict
 
-    :return: list
+    :return: dict
     """
     # get API token
     oanda_api_token = config("OANDA_API")
@@ -19,7 +19,7 @@ def get_data():
     }
     data = inst.InstrumentsCandles(instrument="EUR_USD", params=params)
     oanda_api.request(data)
-    return data.response['candles']
+    return data
 
 if __name__ == '__main__':
     print(get_data())
