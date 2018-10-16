@@ -1,20 +1,25 @@
 from pathlib import Path
 
-import utils
 import pandas
 
-from data.get_data import get_data
+from data.get_data import get_candles_data
+
+# data dir
+DATA_DIR = Path().resolve().parents[1] / 'data' / "candle.csv"
 
 
-def convert_candles(chart_list: list):
-    DATA_DIR = Path().resolve().parents[1] / 'data' / "candle.csv"
-    filename = str(DATA_DIR)
-    candles_dict = [row['mid'] for row in chart_list.response["candles"]]
-    candle = pandas.DataFrame.from_dict(candles_dict)
-    candle['time'] = [row['time'] for row in chart_list.response['candles']]
-    candle.to_csv(filename)
-    return candle
+def convert_candles_dict_to_panda(candles):
+    candles_dicts = [row['mid'] for row in candles.response["candles"]]
+    candles = pandas.DataFrame(candles_dicts)
+    candles['time'] = [row['time'] for row in candles.response['candles']]
+    return candles
+
+
+def save_candles_data(candles, data_dir=DATA_DIR):
+    # save
+    filename = str(data_dir)
+    candles.to_csv(filename)
 
 
 if __name__ == '__main__':
-    convert_candles(get_data())
+    print(convert_candles_dict_to_panda(get_candles_data()))

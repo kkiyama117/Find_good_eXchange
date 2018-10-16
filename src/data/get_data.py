@@ -2,7 +2,7 @@ from oandapyV20 import API
 from decouple import config
 import oandapyV20.endpoints.instruments as inst
 
-def get_data() -> list:
+def get_candles_data() -> inst.InstrumentsCandles:
     """
     get data of chart as list of dict
 
