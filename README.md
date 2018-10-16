@@ -11,3 +11,4 @@ Pythonの練習
 - numpy, pandas (to calculate somethings)
 - SQLAlchemy (to use DB)
 - matplotlib (to show graph)
++ something to Machene learning library
