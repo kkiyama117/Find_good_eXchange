@@ -3,7 +3,14 @@ from decouple import config
 import oandapyV20.endpoints.instruments as inst
 
 def get_data():
+    """
+    get data of chart as list of taple
+
+    :return: list
+    """
+    # get API token
     oanda_api_token = config("OANDA_API")
+    # access to API
     oanda_api = API(access_token=oanda_api_token,environment="practice")
     params = {
         "alignmentTimezone": "Japan",

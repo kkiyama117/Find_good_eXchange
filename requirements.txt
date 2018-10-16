@@ -2,8 +2,10 @@
 python-decouple
 # 計算ツール
 numpy
-panda
+pandas
 # データ取得
 oandapyV20
 # database
-pymongo
+sqlalchemy
+# Server
+
